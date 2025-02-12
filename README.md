@@ -6,5 +6,5 @@ As of Feb 12 2025, there is not a playable demo purely because there's not much 
 
 #
 All assets used are from Mega Man (NES) and are Copyright of Capcom <br>
-Sprites ripped by [Mister Mike](https://www.spriters-resource.com/submitter/MisterMike/) found on The Spriters Resource
+Sprites ripped by [Mister Mike](https://www.spriters-resource.com/submitter/MisterMike/) found on The Spriters Resource <br>
 Sounds and music ripped by [Nai255](https://www.sounds-resource.com/submitter/Nai255/) found on The Sounds Resource
