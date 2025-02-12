@@ -1,0 +1,163 @@
+[gd_scene load_steps=13 format=3 uid="uid://bokccnc6r5kgp"]
+
+[ext_resource type="Texture2D" uid="uid://dmsrf5gqi1nbs" path="res://assets/NES - Mega Man - Cut Man Stage.png" id="1_pos6v"]
+[ext_resource type="PackedScene" uid="uid://demallapemdbm" path="res://scenes/levels/interactable/ladder.tscn" id="2_00s35"]
+[ext_resource type="PackedScene" uid="uid://cfcijobp6i5d2" path="res://scenes/characters/megaman_ver2/mega_man.tscn" id="2_80gfe"]
+[ext_resource type="AudioStream" uid="uid://bhy710ygdu80j" path="res://assets/sound/music/03 Cutman Stage.mp3" id="2_opqcn"]
+[ext_resource type="PackedScene" uid="uid://dkvggjn6uhhmw" path="res://scenes/levels/killbox/kill_box.tscn" id="3_5yies"]
+[ext_resource type="Script" path="res://scenes/levels/killbox/kill_box.gd" id="4_g4fv7"]
+[ext_resource type="Script" path="res://scripts/music/stage_music.gd" id="4_ypkke"]
+[ext_resource type="PackedScene" uid="uid://12adddqjmqfp" path="res://scenes/hud/mm-healthbar/mm-healthbar.tscn" id="7_i65r4"]
+[ext_resource type="PackedScene" uid="uid://cap6pbg6181kt" path="res://scenes/levels/spawners/spawner.tscn" id="8_y4dhh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pvg3c"]
+size = Vector2(243, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_20mdn"]
+size = Vector2(48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_px2e3"]
+
+[node name="Node" type="Node"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = -1
+anchor_left = -0.00260417
+anchor_top = -9.6713
+anchor_right = 8.66927
+anchor_bottom = 1.00463
+offset_right = -6660.0
+offset_bottom = -4612.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+texture = ExtResource("1_pos6v")
+
+[node name="Level" type="Node" parent="."]
+
+[node name="Platforms" type="Node2D" parent="Level"]
+
+[node name="Platform1" type="StaticBody2D" parent="Level/Platforms"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/Platforms/Platform1"]
+polygon = PackedVector2Array(0, 456, 384, 456, 384, 360, 480, 360, 480, 264, 576, 264, 576, 456, 1062, 456, 1152, 456, 1152, 360, 1248, 360, 1248, 264, 1344, 264, 1344, 456, 1728, 456, 1728, 360, 1824, 360, 1824, 264, 1920, 264, 1920, 168, 2016, 168, 2016, 651, 0, 651)
+
+[node name="Platform2" type="StaticBody2D" parent="Level/Platforms"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform2"]
+position = Vector2(118.5, 192)
+shape = SubResource("RectangleShape2D_pvg3c")
+
+[node name="Platform3" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(291, 0)
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/Platforms/Platform3"]
+polygon = PackedVector2Array(-3, 168, 93, 168, 93, 72, 189, 72, 189, 216, -3, 213)
+
+[node name="Platform4" type="StaticBody2D" parent="Level/Platforms"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform4"]
+position = Vector2(552, 192)
+shape = SubResource("RectangleShape2D_20mdn")
+
+[node name="Platform5" type="StaticBody2D" parent="Level/Platforms"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/Platforms/Platform5"]
+polygon = PackedVector2Array(672, 168, 672, 216, 1008, 216, 1008, 168)
+
+[node name="Platform6" type="StaticBody2D" parent="Level/Platforms"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/Platforms/Platform6"]
+polygon = PackedVector2Array(1056, 168, 1056, 216, 1248, 216, 1248, 72, 1152, 72, 1152, 168)
+
+[node name="Platform7" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(384, 0)
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/Platforms/Platform7"]
+polygon = PackedVector2Array(1056, 168, 1056, 216, 1152, 216, 1152, 168)
+
+[node name="Platform8" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(1665, 192)
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/Platforms/Platform8"]
+polygon = PackedVector2Array(-81, 24, 15, 24, 15, 72, -81, 72)
+
+[node name="Platform9" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(1320, 189)
+scale = Vector2(0.5, 1)
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/Platforms/Platform9"]
+position = Vector2(33, -45)
+polygon = PackedVector2Array(-81, 24, 15, 24, 15, 72, -81, 72)
+
+[node name="Ladders" type="Node2D" parent="Level"]
+
+[node name="Ladder" parent="Level/Ladders" instance=ExtResource("2_00s35")]
+
+[node name="Ladder2" parent="Level/Ladders" instance=ExtResource("2_00s35")]
+position = Vector2(1017, 297)
+
+[node name="Boundaries" type="Node2D" parent="Level"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Boundaries"]
+position = Vector2(-81, 246)
+scale = Vector2(8.1, 24.7)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Boundaries/StaticBody2D"]
+shape = SubResource("RectangleShape2D_px2e3")
+debug_color = Color(0.941176, 0, 0, 0.419608)
+
+[node name="KillBox" parent="Level/Boundaries" instance=ExtResource("3_5yies")]
+position = Vector2(0, 702)
+script = ExtResource("4_g4fv7")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_opqcn")
+autoplay = true
+script = ExtResource("4_ypkke")
+
+[node name="MegaMan" parent="." instance=ExtResource("2_80gfe")]
+position = Vector2(420, 324)
+
+[node name="Camera2D" type="Camera2D" parent="MegaMan"]
+limit_left = 0
+limit_top = -48
+limit_bottom = 648
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="MMHealthBar" parent="UI" instance=ExtResource("7_i65r4")]
+offset_left = 33.0
+offset_top = 39.0
+offset_right = 41.0
+offset_bottom = 95.0
+scale = Vector2(3, 3)
+
+[node name="Spawners" type="Node2D" parent="."]
+
+[node name="HeliSpawner" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(1203, 48)
+
+[node name="HeliSpawner2" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(1674, 159)
+
+[connection signal="body_entered" from="Level/Ladders/Ladder" to="MegaMan" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Level/Ladders/Ladder" to="MegaMan" method="_on_ladder_body_exited"]
+[connection signal="ladder_x_pos" from="Level/Ladders/Ladder" to="MegaMan" method="_on_ladder_ladder_x_pos"]
+[connection signal="body_entered" from="Level/Ladders/Ladder2" to="MegaMan" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Level/Ladders/Ladder2" to="MegaMan" method="_on_ladder_body_exited"]
+[connection signal="ladder_x_pos" from="Level/Ladders/Ladder2" to="MegaMan" method="_on_ladder_ladder_x_pos"]
+[connection signal="body_entered" from="Level/Boundaries/KillBox" to="Level/Boundaries/KillBox" method="_on_body_entered"]
+[connection signal="change_health" from="MegaMan" to="UI/MMHealthBar" method="_on_mega_man_change_health"]
+[connection signal="defeated" from="MegaMan" to="Music" method="_on_mega_man_defeated"]

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bi2ysut44buaf"
+path="res://.godot/imported/15 - GutsQuake.wav-8322ea176fae5608dac25e6457bb69aa.sample"
+
+[deps]
+
+source_file="res://assets/sound/effects/15 - GutsQuake.wav"
+dest_files=["res://.godot/imported/15 - GutsQuake.wav-8322ea176fae5608dac25e6457bb69aa.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

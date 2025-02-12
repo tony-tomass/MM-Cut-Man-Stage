@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ds168oc4ivhu"
+path="res://.godot/imported/14 - SuperArm.wav-658d360c81e44415226e9f3d875b4dfa.sample"
+
+[deps]
+
+source_file="res://assets/sound/effects/14 - SuperArm.wav"
+dest_files=["res://.godot/imported/14 - SuperArm.wav-658d360c81e44415226e9f3d875b4dfa.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

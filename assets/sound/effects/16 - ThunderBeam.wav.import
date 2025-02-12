@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cpd382lia4el5"
+path="res://.godot/imported/16 - ThunderBeam.wav-038d75c589874a88f12895e3cd9dba29.sample"
+
+[deps]
+
+source_file="res://assets/sound/effects/16 - ThunderBeam.wav"
+dest_files=["res://.godot/imported/16 - ThunderBeam.wav-038d75c589874a88f12895e3cd9dba29.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

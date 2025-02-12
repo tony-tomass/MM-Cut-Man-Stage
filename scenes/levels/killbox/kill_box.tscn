@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkvggjn6uhhmw"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kco5v"]
+
+[node name="KillBox" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("WorldBoundaryShape2D_kco5v")
+debug_color = Color(0.866798, 0, 0.142029, 0.42)

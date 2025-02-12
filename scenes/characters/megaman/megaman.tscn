@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://byr58ty8xwigd"]
+
+[ext_resource type="Script" path="res://scenes/characters/megaman/megaman.gd" id="1_dx2h6"]
+[ext_resource type="Texture2D" uid="uid://cc37ikid8v4kc" path="res://assets/characters/mega man/climb/mm-climb-1.png" id="2_un4wf"]
+[ext_resource type="Texture2D" uid="uid://lmbxw28mdxhf" path="res://assets/characters/mega man/climb/mm-climb-2.png" id="3_b8hv4"]
+[ext_resource type="Texture2D" uid="uid://be3kgght1uxxl" path="res://assets/characters/mega man/idle/mm-idle-1.png" id="4_35t2e"]
+[ext_resource type="Texture2D" uid="uid://x73n6qkh4d18" path="res://assets/characters/mega man/jump/mm-jump-1.png" id="5_a26p4"]
+[ext_resource type="Texture2D" uid="uid://d1nrp4ww2up32" path="res://assets/characters/mega man/idle/mm-idle-shoot.png" id="5_kijts"]
+[ext_resource type="Texture2D" uid="uid://bsu8uvl3sk6xw" path="res://assets/characters/mega man/run/mm-run-1.png" id="6_8mkhm"]
+[ext_resource type="Texture2D" uid="uid://dwihnxql4rjqo" path="res://assets/characters/mega man/run/mm-run-2.png" id="7_8uwym"]
+[ext_resource type="Texture2D" uid="uid://cpfrny2algeeh" path="res://assets/characters/mega man/run/mm-run-3.png" id="8_6s6k0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g7s18"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_un4wf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_b8hv4")
+}],
+"loop": true,
+"name": &"climb",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_35t2e")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_kijts")
+}],
+"loop": true,
+"name": &"idle_shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_a26p4")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_8mkhm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8uwym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6s6k0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8uwym")
+}],
+"loop": true,
+"name": &"run",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fgqfd"]
+size = Vector2(14, 22)
+
+[node name="MegaMan" type="CharacterBody2D"]
+scale = Vector2(3, 3)
+collision_mask = 2
+script = ExtResource("1_dx2h6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-4.5, 0)
+sprite_frames = SubResource("SpriteFrames_g7s18")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fgqfd")
+
+[node name="ShootDelayTimer" type="Timer" parent="."]

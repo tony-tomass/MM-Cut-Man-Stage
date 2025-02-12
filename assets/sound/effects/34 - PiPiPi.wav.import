@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cue7egyo27e0t"
+path="res://.godot/imported/34 - PiPiPi.wav-cca4a3e1e8ddb40aebe1a8baa2fc8ce5.sample"
+
+[deps]
+
+source_file="res://assets/sound/effects/34 - PiPiPi.wav"
+dest_files=["res://.godot/imported/34 - PiPiPi.wav-cca4a3e1e8ddb40aebe1a8baa2fc8ce5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbufjcjnycngh"]
+
+[ext_resource type="Texture2D" uid="uid://b4440psgty8w4" path="res://assets/characters/mega man/defeat/mm-defeat-particle.png" id="1_wb40p"]
+[ext_resource type="Script" path="res://scenes/effects/mm-defeat/defeat_particles.gd" id="2_mvfo2"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cdj46"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[node name="DefeatParticles" type="CPUParticles2D"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_cdj46")
+emitting = false
+amount = 32
+lifetime = 10.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+texture = ExtResource("1_wb40p")
+emission_shape = 1
+emission_sphere_radius = 4.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+radial_accel_min = 12.0
+radial_accel_max = 12.0
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+anim_speed_min = 20.0
+anim_speed_max = 20.0
+script = ExtResource("2_mvfo2")
