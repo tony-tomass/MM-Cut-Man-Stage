@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8frxlqowu2eg"]
+
+[ext_resource type="Script" uid="uid://sdjuca3hfwrb" path="res://scenes/characters/enemies/ad-suzy/adhering_suzy.gd" id="1_d0m0k"]
+[ext_resource type="Texture2D" uid="uid://buya7rxipnhgl" path="res://assets/characters/enemies/ad suzy/ad-suzy-1.png" id="1_lsrwx"]
+[ext_resource type="Texture2D" uid="uid://bymqcdhq21dko" path="res://assets/characters/enemies/ad suzy/ad-suzy-2.png" id="1_r36r8"]
+[ext_resource type="Texture2D" uid="uid://dafofskkymp1i" path="res://assets/characters/enemies/ad suzy/ad-suzy-3.png" id="2_x123k"]
+[ext_resource type="Script" uid="uid://ck6kbh3rmlsr8" path="res://scripts/enemy_hurtbox.gd" id="5_0lw20"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nu3bu"]
+size = Vector2(14, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q05lf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x123k")
+}],
+"loop": false,
+"name": &"awake",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lsrwx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_r36r8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_x123k")
+}],
+"loop": false,
+"name": &"change",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lsrwx")
+}],
+"loop": false,
+"name": &"rest",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uuapp"]
+size = Vector2(16, 16)
+
+[node name="AdheringSuzy" type="CharacterBody2D" groups=["Enemies"]]
+texture_filter = 1
+scale = Vector2(3, 3)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_d0m0k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_nu3bu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q05lf")
+animation = &"change"
+autoplay = "rest"
+
+[node name="MoveDelay" type="Timer" parent="."]
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="." groups=["Enemies"]]
+script = ExtResource("5_0lw20")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_uuapp")
+debug_color = Color(0.95171, 0.185773, 0.310269, 0.42)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="timeout" from="MoveDelay" to="." method="_on_move_delay_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="hurt" from="Area2D" to="." method="_on_area_2d_hurt"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,0 +1,79 @@
+1/31/25
++ State Machine
++ Movement and Shooting
++ Level and Collisions
+
+2/1/25
++ Climbing and Hurt State
++ Better shooting
++ One Enemy (Bunby Heli) w/ basic ai
+
+2/3/25
++ Added groups
++ Health and Damage
++ Rework enemy damage
+
+2/4/25
++ Health bar
++ Basic Death animation
+
+2/5/25
++ Proper Death state
++ Camera Limits and basic Boundaries
+
+2/12/25
++ Static health bar
++ Collision layers for enemies/etc
++ Enemy spawner w/ timer
++ Enemy despawn off-screen
++ Basic killbox (need negate iframes)
+
+2/13/25
++ Queue-free bullets
++ Added more collisions to level
++ Room transitions and camera limits
++ Fixed map texture window resizing
+
+2/14/25
++ New enemy: Blaster beak
+
+2/17/25
++ More accurate Blaster beak projectile trajectory
++ Updated enemy spawn positions
++ Custom font from image
++ Clunky intro animation
++ Restart scene when die
++ Fixed killbox (can't die if iframes active)
+
+2/20/25
++ Slightly more accurate hurt state
++ Hurt effects (sweat and impact)
++ Added more to map (Map completion ~33%)
+
+2/25/25
++ Added Super Cutter enemy
++ Added Flea enemy
++ Added Ad Suzy enemy
++ Added more to map (~66%)
++ Basic music looping
+
+3/4/25
++ Added Mambu enemy
++ Added Big Eye enemy
++ Small tweak to spawner
++ Defeat state (prevent player from moving when defeat anim plays)
++ 95% map completion 
+
+3/6/25
++ Audio Manager
++ Enemy Death effect
++ Better music looping
+
+Next time:
+- Better room transitions
+- Points system
+- Better Intro scene
+- Main and stage select menu
+- Item drops
+- Fix Heli enemy AI
+- Variable jump

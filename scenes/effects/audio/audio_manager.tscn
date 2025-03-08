@@ -1,0 +1,45 @@
+[gd_scene load_steps=11 format=3 uid="uid://c8lkwban2rrwb"]
+
+[ext_resource type="Script" uid="uid://cxvkpubplqf25" path="res://scenes/effects/audio/audio_manager.gd" id="1_j88g1"]
+[ext_resource type="AudioStream" uid="uid://dmfpck1lguqqe" path="res://assets/sound/effects/09 - EnemyDamage.wav" id="1_vlohd"]
+[ext_resource type="AudioStream" uid="uid://bf8s60vdd86oo" path="res://assets/sound/effects/10 - EnemyShoot.wav" id="2_3pt5u"]
+[ext_resource type="AudioStream" uid="uid://dcumo2ryu1elm" path="res://assets/sound/effects/11 - Dink.wav" id="3_ob6v6"]
+[ext_resource type="AudioStream" uid="uid://bo8n35c0mkpco" path="res://assets/sound/music/Cutman Stage Loop.mp3" id="5_ewnwa"]
+[ext_resource type="AudioStream" uid="uid://cxnukjjvoslai" path="res://assets/sound/effects/05 - MegaBuster.wav" id="5_oyeye"]
+[ext_resource type="AudioStream" uid="uid://d3kl3hlw3wuu4" path="res://assets/sound/music/Cutman Stage Intro.mp3" id="6_ewnwa"]
+[ext_resource type="AudioStream" uid="uid://k7by47l5t5ki" path="res://assets/sound/effects/06 - MegamanLand.wav" id="6_j88g1"]
+[ext_resource type="AudioStream" uid="uid://prjaxnjruuqb" path="res://assets/sound/effects/07 - MegamanDamage.wav" id="8_403aa"]
+[ext_resource type="AudioStream" uid="uid://dlewopo75mt8w" path="res://assets/sound/effects/08 - MegamanDefeat.wav" id="9_mu1g7"]
+
+[node name="AudioManager" type="Node2D"]
+script = ExtResource("1_j88g1")
+
+[node name="EnemyDamage" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_vlohd")
+
+[node name="EnemyShoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_3pt5u")
+
+[node name="EnemyDink" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ob6v6")
+
+[node name="StageMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ewnwa")
+parameters/looping = true
+
+[node name="IntroMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ewnwa")
+
+[node name="MegaManShoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_oyeye")
+
+[node name="MegaManLand" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_j88g1")
+
+[node name="MegaManDamage" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_403aa")
+
+[node name="MegaManDefeat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_mu1g7")
+
+[connection signal="finished" from="IntroMusic" to="." method="_on_intro_music_finished"]

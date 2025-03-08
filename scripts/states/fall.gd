@@ -6,15 +6,13 @@ extends State
 @export var climb_state: State
 @export var hurt_state: State
 
-@onready var land_sound: AudioStreamPlayer = %LandSound
-
-func process_input(event: InputEvent) -> State:
+func process_input(_event: InputEvent) -> State:
 	shoot()
 	parent.anim_player.queue("idle")
 	
 	return null
 	
-func process_frame(delta: float) -> State:
+func process_frame(_delta: float) -> State:
 	if got_hurt:
 		return hurt_state
 	return null
@@ -33,7 +31,7 @@ func process_physics(delta: float) -> State:
 		return climb_state
 	
 	if parent.is_on_floor():
-		land_sound.play()
+		AudioManager.play_mega_man_land()
 		if direction != 0:
 			return run_state
 		return idle_state

@@ -12,7 +12,7 @@ var got_hurt: bool
 
 func enter() -> void:
 	got_hurt = false
-	print(name)
+	#print(name)
 	parent.anim_player.play(anim_name)
 	
 func exit() -> void:

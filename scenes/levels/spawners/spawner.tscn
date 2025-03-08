@@ -1,13 +1,16 @@
 [gd_scene load_steps=2 format=3 uid="uid://cap6pbg6181kt"]
 
-[ext_resource type="Script" path="res://scenes/levels/spawners/spawner.gd" id="1_xam6v"]
+[ext_resource type="Script" uid="uid://bg7vammine07c" path="res://scenes/levels/spawners/spawner.gd" id="1_xam6v"]
 
 [node name="Spawner" type="Node2D"]
+scale = Vector2(3, 3)
 script = ExtResource("1_xam6v")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(0.7, 0.7)
 
 [node name="SpawnTimer" type="Timer" parent="."]
 
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

@@ -1,0 +1,209 @@
+[gd_scene load_steps=14 format=3 uid="uid://cyq86cm7lc4ln"]
+
+[ext_resource type="Texture2D" uid="uid://cvaffpkwescqb" path="res://assets/characters/enemies/blaster/blaster-idle.png" id="1_lx4we"]
+[ext_resource type="Script" uid="uid://da7454a2kcf2h" path="res://scenes/characters/enemies/blaster-beak/blaster_beak.gd" id="1_sd56l"]
+[ext_resource type="Texture2D" uid="uid://r57wssvtnwhh" path="res://assets/characters/enemies/blaster/blaster-open-1.png" id="2_ibpcx"]
+[ext_resource type="Texture2D" uid="uid://dkwkp8s3qxime" path="res://assets/characters/enemies/blaster/blaster-open-2.png" id="3_f8y4i"]
+[ext_resource type="Texture2D" uid="uid://bmiyx0ud6dptq" path="res://assets/characters/enemies/blaster/blaster-shoot.png" id="4_t67vx"]
+[ext_resource type="AudioStream" uid="uid://bf8s60vdd86oo" path="res://assets/sound/effects/10 - EnemyShoot.wav" id="8_m84fj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_02fx7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lx4we")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ibpcx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_f8y4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_t67vx")
+}],
+"loop": false,
+"name": &"change",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lx4we")
+}],
+"loop": true,
+"name": &"shield",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_t67vx")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53ro7"]
+size = Vector2(10, 16)
+
+[sub_resource type="Animation" id="Animation_5pr53"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"shield"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_h2qcx"]
+resource_name = "change"
+length = 0.375012
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.375),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"change", &"change"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_srggb"]
+resource_name = "shield"
+length = 0.125013
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"shield"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_a40f3"]
+resource_name = "shoot"
+length = 0.125013
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"shoot"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k6oxu"]
+_data = {
+&"RESET": SubResource("Animation_5pr53"),
+&"change": SubResource("Animation_h2qcx"),
+&"shield": SubResource("Animation_srggb"),
+&"shoot": SubResource("Animation_a40f3")
+}
+
+[node name="BlasterBeak" type="Area2D" groups=["Enemies"]]
+scale = Vector2(3, 3)
+script = ExtResource("1_sd56l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_02fx7")
+animation = &"shield"
+autoplay = "shield"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_53ro7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_k6oxu")
+}
+autoplay = "shield"
+
+[node name="ShieldTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ShootTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="FireDelay" type="Timer" parent="."]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(3, -4.76837e-07)
+scale = Vector2(0.5, 0.8)
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_m84fj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="ShieldTimer" to="." method="_on_shield_timer_timeout"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

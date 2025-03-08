@@ -35,7 +35,7 @@ func get_active_weapon():
 
 func _on_ladder_body_entered(body: Node2D) -> void:
 	on_ladder = true
-	print(on_ladder)
+	#print(on_ladder)
 
 func _on_ladder_body_exited(body: Node2D) -> void:
 	on_ladder = false
@@ -54,13 +54,18 @@ func damage_health(amount: int) -> void:
 		change_health.emit(health)
 		
 		if health <= 0:
-			defeated.emit()
+			kill()
 		else:
-			print("iframes active")
-			#health_bar.value = health
+			#print("iframes active")
 			effect_player.play("fx_hurt")
 			iframes_active = true
-	
+
+func kill() -> void:
+	got_hurt.emit()
+	health = 0
+	change_health.emit(health)
+	defeated.emit()
+
 func _on_invin_timer_timeout() -> void:
 	iframes_active = false
 	effect_player.stop()

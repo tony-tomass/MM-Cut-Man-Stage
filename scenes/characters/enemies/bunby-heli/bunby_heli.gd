@@ -1,18 +1,17 @@
 extends Area2D
 
-@export var speed : float = 3
-@export var direction: int = -1
-
-@export var health: int = 3
-@export var damage: int = 3
-
 @onready var attack_timer: Timer = $AttackTimer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var hurt_sound: AudioStreamPlayer = $HurtSound
-@onready var target = get_tree().root.get_child(0).get_node("MegaMan")
+@onready var target = get_tree().get_nodes_in_group("Player")[0]
 
 var player_pos
 var spawn_pos
+
+var defeat_effect = preload("res://scenes/effects/bomb-explode/bomb_explode_particles.tscn")
+var speed : float = 3
+var direction: int = -1
+var health: int = 3
+var damage: int = 3
 
 enum States {
 	MOVE,
@@ -22,8 +21,6 @@ enum States {
 var current_state = States.MOVE
 
 var on_cooldown = false
-
-signal defeated()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -48,7 +45,6 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		body.damage_health(damage)
 	handle_direction()
-	pass
 	
 func attack(delta: float) -> void:
 	var original_pos = position
@@ -63,7 +59,6 @@ func attack(delta: float) -> void:
 	#position = position.move_toward(destination, delta + attack_speed)
 	#if position == destination:
 		#current_state = States.RECOVER
-
 
 func recover(delta: float) -> void:
 	var current_pos = position
@@ -95,12 +90,19 @@ func handle_movement(delta: float) -> void:
 		move(delta, speed)
 		
 func damage_health(amount: int) -> void:
-	hurt_sound.play()
+	AudioManager.play_enemy_damage()
 	health -= amount
 	if health <= 0:
-		defeated.emit()
-		#await hurt_sound.finished
+		start_defeat_effect()
 		queue_free()
+
+func set_starting_direction(value: int) -> void:
+	direction = value
+	
+func start_defeat_effect() -> void:
+	var effect = defeat_effect.instantiate()
+	effect.position = position
+	get_parent().add_child(effect)
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()

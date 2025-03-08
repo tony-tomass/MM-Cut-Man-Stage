@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://uknsb1jvu0iu"]
+
+[ext_resource type="Script" uid="uid://dscwv6qgyy1ye" path="res://scenes/characters/enemies/super-cutter/super_cutter.gd" id="1_g8s7g"]
+[ext_resource type="Texture2D" uid="uid://cv7qlu5bp02fg" path="res://assets/characters/enemies/super cutter/super-cutter-1.png" id="1_o457l"]
+[ext_resource type="Texture2D" uid="uid://buu5wy56a0m35" path="res://assets/characters/enemies/super cutter/super-cutter-2.png" id="2_pdypl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kso6"]
+size = Vector2(16, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4dev8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_o457l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pdypl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="SuperCutter" type="Area2D"]
+texture_filter = 1
+scale = Vector2(3, 3)
+script = ExtResource("1_g8s7g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0kso6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4dev8")
+autoplay = "default"
+frame_progress = 0.126668
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

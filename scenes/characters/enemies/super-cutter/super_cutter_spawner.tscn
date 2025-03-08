@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5nfj627b8r1"]
+
+[ext_resource type="Script" uid="uid://bg2tfvxx168l2" path="res://scenes/characters/enemies/super-cutter/super_cutter_spawner.gd" id="1_hsjph"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qia5p"]
+
+[node name="SuperCutterSpawner" type="Node2D"]
+script = ExtResource("1_hsjph")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(20, 11.5)
+shape = SubResource("RectangleShape2D_qia5p")
+debug_color = Color(0.575087, 0.545718, 0.274734, 0.42)
+
+[node name="FireDelay" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

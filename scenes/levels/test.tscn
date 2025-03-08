@@ -1,14 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://bokccnc6r5kgp"]
+[gd_scene load_steps=64 format=3 uid="uid://bokccnc6r5kgp"]
 
+[ext_resource type="Script" uid="uid://0cxq5wawojwe" path="res://scenes/levels/test.gd" id="1_5kmha"]
 [ext_resource type="Texture2D" uid="uid://dmsrf5gqi1nbs" path="res://assets/NES - Mega Man - Cut Man Stage.png" id="1_pos6v"]
 [ext_resource type="PackedScene" uid="uid://demallapemdbm" path="res://scenes/levels/interactable/ladder.tscn" id="2_00s35"]
 [ext_resource type="PackedScene" uid="uid://cfcijobp6i5d2" path="res://scenes/characters/megaman_ver2/mega_man.tscn" id="2_80gfe"]
-[ext_resource type="AudioStream" uid="uid://bhy710ygdu80j" path="res://assets/sound/music/03 Cutman Stage.mp3" id="2_opqcn"]
 [ext_resource type="PackedScene" uid="uid://dkvggjn6uhhmw" path="res://scenes/levels/killbox/kill_box.tscn" id="3_5yies"]
-[ext_resource type="Script" path="res://scenes/levels/killbox/kill_box.gd" id="4_g4fv7"]
-[ext_resource type="Script" path="res://scripts/music/stage_music.gd" id="4_ypkke"]
+[ext_resource type="Script" uid="uid://c01tln5w4dada" path="res://scripts/room_transition.gd" id="5_8q0ib"]
 [ext_resource type="PackedScene" uid="uid://12adddqjmqfp" path="res://scenes/hud/mm-healthbar/mm-healthbar.tscn" id="7_i65r4"]
+[ext_resource type="Script" uid="uid://ds8tekmma0u1e" path="res://scripts/camera.gd" id="8_7y8sf"]
 [ext_resource type="PackedScene" uid="uid://cap6pbg6181kt" path="res://scenes/levels/spawners/spawner.tscn" id="8_y4dhh"]
+[ext_resource type="FontFile" uid="uid://bt2upqxxkk8dq" path="res://assets/hud/alphabet_az.png" id="11_op0o4"]
+[ext_resource type="PackedScene" uid="uid://c5nfj627b8r1" path="res://scenes/characters/enemies/super-cutter/super_cutter_spawner.tscn" id="13_vuafr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pvg3c"]
 size = Vector2(243, 48)
@@ -16,9 +18,158 @@ size = Vector2(243, 48)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20mdn"]
 size = Vector2(48, 48)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hh4vu"]
+size = Vector2(48, 288)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sw8sf"]
+size = Vector2(48, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rr3u0"]
+size = Vector2(144, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ulpm"]
+size = Vector2(48, 240)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kso1v"]
+size = Vector2(480, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b75oq"]
+size = Vector2(48, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8nsg"]
+size = Vector2(240, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ue3im"]
+size = Vector2(48, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ttyps"]
+size = Vector2(48, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1xm5"]
+size = Vector2(192, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efnfu"]
+size = Vector2(192, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejoaj"]
+size = Vector2(48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6itfb"]
+size = Vector2(240, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_buhrw"]
+size = Vector2(96, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jp6sl"]
+size = Vector2(144, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4dn2"]
+size = Vector2(48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5nnbq"]
+size = Vector2(96, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gaelb"]
+size = Vector2(48, 288)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2pvm"]
+size = Vector2(48, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hf1qb"]
+size = Vector2(336, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1vf7"]
+size = Vector2(48, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60g7c"]
+size = Vector2(96, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_so10e"]
+size = Vector2(96, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hkmx"]
+size = Vector2(48, 240)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63lkr"]
+size = Vector2(96, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_er8ug"]
+size = Vector2(96, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hyjkl"]
+size = Vector2(96, 48)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_px2e3"]
+size = Vector2(20, 120.162)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xvgeu"]
+size = Vector2(20, 120.162)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0arm6"]
+size = Vector2(693, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbvek"]
+size = Vector2(693, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_arpmh"]
+size = Vector2(693, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7wri"]
+size = Vector2(693, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c32q5"]
+size = Vector2(693, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_laqlr"]
+size = Vector2(693, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vmm1g"]
+size = Vector2(693, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7a1t"]
+size = Vector2(693, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2guy4"]
+size = Vector2(693, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8vsu"]
+size = Vector2(693, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6g7c"]
+size = Vector2(693, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tth1p"]
+size = Vector2(693, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytyh8"]
+size = Vector2(693, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6amj4"]
+size = Vector2(693, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0ucg"]
+size = Vector2(693, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aglj4"]
+size = Vector2(693, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wl2b4"]
+size = Vector2(693, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_irr71"]
+size = Vector2(693, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_04i4r"]
+size = Vector2(693, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4sg2"]
+size = Vector2(693, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4ck7"]
+size = Vector2(693, 3)
 
 [node name="Node" type="Node"]
+script = ExtResource("1_5kmha")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
@@ -27,12 +178,15 @@ anchor_left = -0.00260417
 anchor_top = -9.6713
 anchor_right = 8.66927
 anchor_bottom = 1.00463
-offset_right = -6660.0
-offset_bottom = -4612.0
+offset_left = -1.17708
+offset_top = 270.799
+offset_right = -2741.49
+offset_bottom = -4341.2
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(3, 3)
 texture = ExtResource("1_pos6v")
+stretch_mode = 2
 
 [node name="Level" type="Node" parent="."]
 
@@ -40,12 +194,14 @@ texture = ExtResource("1_pos6v")
 
 [node name="Platform1" type="StaticBody2D" parent="Level/Platforms"]
 collision_layer = 2
+collision_mask = 9
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/Platforms/Platform1"]
 polygon = PackedVector2Array(0, 456, 384, 456, 384, 360, 480, 360, 480, 264, 576, 264, 576, 456, 1062, 456, 1152, 456, 1152, 360, 1248, 360, 1248, 264, 1344, 264, 1344, 456, 1728, 456, 1728, 360, 1824, 360, 1824, 264, 1920, 264, 1920, 168, 2016, 168, 2016, 651, 0, 651)
 
 [node name="Platform2" type="StaticBody2D" parent="Level/Platforms"]
 collision_layer = 2
+collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform2"]
 position = Vector2(118.5, 192)
@@ -54,12 +210,14 @@ shape = SubResource("RectangleShape2D_pvg3c")
 [node name="Platform3" type="StaticBody2D" parent="Level/Platforms"]
 position = Vector2(291, 0)
 collision_layer = 2
+collision_mask = 9
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/Platforms/Platform3"]
 polygon = PackedVector2Array(-3, 168, 93, 168, 93, 72, 189, 72, 189, 216, -3, 213)
 
 [node name="Platform4" type="StaticBody2D" parent="Level/Platforms"]
 collision_layer = 2
+collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform4"]
 position = Vector2(552, 192)
@@ -67,12 +225,14 @@ shape = SubResource("RectangleShape2D_20mdn")
 
 [node name="Platform5" type="StaticBody2D" parent="Level/Platforms"]
 collision_layer = 2
+collision_mask = 9
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/Platforms/Platform5"]
 polygon = PackedVector2Array(672, 168, 672, 216, 1008, 216, 1008, 168)
 
 [node name="Platform6" type="StaticBody2D" parent="Level/Platforms"]
 collision_layer = 2
+collision_mask = 9
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/Platforms/Platform6"]
 polygon = PackedVector2Array(1056, 168, 1056, 216, 1248, 216, 1248, 72, 1152, 72, 1152, 168)
@@ -80,6 +240,7 @@ polygon = PackedVector2Array(1056, 168, 1056, 216, 1248, 216, 1248, 72, 1152, 72
 [node name="Platform7" type="StaticBody2D" parent="Level/Platforms"]
 position = Vector2(384, 0)
 collision_layer = 2
+collision_mask = 9
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/Platforms/Platform7"]
 polygon = PackedVector2Array(1056, 168, 1056, 216, 1152, 216, 1152, 168)
@@ -87,6 +248,7 @@ polygon = PackedVector2Array(1056, 168, 1056, 216, 1152, 216, 1152, 168)
 [node name="Platform8" type="StaticBody2D" parent="Level/Platforms"]
 position = Vector2(1665, 192)
 collision_layer = 2
+collision_mask = 9
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/Platforms/Platform8"]
 polygon = PackedVector2Array(-81, 24, 15, 24, 15, 72, -81, 72)
@@ -95,17 +257,395 @@ polygon = PackedVector2Array(-81, 24, 15, 24, 15, 72, -81, 72)
 position = Vector2(1320, 189)
 scale = Vector2(0.5, 1)
 collision_layer = 2
+collision_mask = 9
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/Platforms/Platform9"]
 position = Vector2(33, -45)
 polygon = PackedVector2Array(-81, 24, 15, 24, 15, 72, -81, 72)
 
+[node name="Platform10" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(2163, 387)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/Platforms/Platform10"]
+polygon = PackedVector2Array(-51, -75, 45, -75, 45, 21, 141, 21, 141, 69, 669, 69, 669, -27, 717, -27, 717, -219, 573, -219, 573, -315, 909, -315, 909, 264, -51, 264)
+
+[node name="Platform11" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(2523, 213)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform11"]
+position = Vector2(-3, 3)
+shape = SubResource("RectangleShape2D_hh4vu")
+
+[node name="Platform12" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(2619, 123)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform12"]
+position = Vector2(-3, -3)
+shape = SubResource("RectangleShape2D_sw8sf")
+
+[node name="Platform13" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(2619, 315)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform13"]
+position = Vector2(45, 21)
+shape = SubResource("RectangleShape2D_rr3u0")
+
+[node name="Platform14" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(3024, -60)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/Platforms/Platform14"]
+polygon = PackedVector2Array(48, 132, 48, -2364, 528, -2364, 528, -2844, 432, -2844, 432, -2748, 336, -2748, 336, -2652, 240, -2652, 240, -2556, -144, -2556, -144, -2508, -528, -2508, -528, -2364, -432, -2364, -432, -2316, -384, -2316, -384, -2268, -240, -2268, -240, -2220, -192, -2220, -192, -2172, -144, -2172, -144, -1980, -480, -1980, -480, -1932, -144, -1932, -144, -1884, -48, -1884, -48, -1452, -144, -1452, -144, -1356, -240, -1356, -240, -1164, -48, -1164, -48, -684, -240, -684, -240, -588, -336, -588, -336, -492, -432, -492, -432, -396, -48, -396, -48, 132)
+
+[node name="Platform15" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(2619, 315)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform15"]
+position = Vector2(285, -459)
+shape = SubResource("RectangleShape2D_2ulpm")
+
+[node name="Platform16" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(2532, -174)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform16"]
+position = Vector2(12, -18)
+shape = SubResource("RectangleShape2D_kso1v")
+
+[node name="Platform17" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(2472, -441)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform17"]
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_b75oq")
+
+[node name="Platform18" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(2904, -969)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform18"]
+position = Vector2(-96, 9)
+shape = SubResource("RectangleShape2D_i8nsg")
+
+[node name="Platform19" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(2520, -969)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/Platforms/Platform19"]
+polygon = PackedVector2Array(24, -63, -24, -63, -24, -159, -120, -159, -120, 81, 24, 81)
+
+[node name="Platform20" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(2472, -1362)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform20"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_ue3im")
+
+[node name="Platform21" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(2712, -1266)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform21"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_ttyps")
+
+[node name="Platform22" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(2712, -1746)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform22"]
+position = Vector2(120, 18)
+shape = SubResource("RectangleShape2D_d1xm5")
+
+[node name="Platform23" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(2424, -1746)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform23"]
+position = Vector2(120, 18)
+shape = SubResource("RectangleShape2D_efnfu")
+
+[node name="Platform24" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(2472, -2016)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform24"]
+shape = SubResource("RectangleShape2D_ejoaj")
+
+[node name="Platform25" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(2472, -2160)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform25"]
+position = Vector2(96, 0)
+shape = SubResource("RectangleShape2D_6itfb")
+
+[node name="Platform26" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(3144, -2832)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform26"]
+position = Vector2(24, 0)
+shape = SubResource("RectangleShape2D_buhrw")
+
+[node name="Platform27" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(4155, -2739)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform27"]
+position = Vector2(45, 3)
+shape = SubResource("RectangleShape2D_jp6sl")
+
+[node name="Platform32" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(4107, -3603)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform32"]
+position = Vector2(-3, 3)
+shape = SubResource("RectangleShape2D_r4dn2")
+
+[node name="Platform33" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(4251, -3651)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform33"]
+position = Vector2(21, 3)
+shape = SubResource("RectangleShape2D_5nnbq")
+
+[node name="Platform28" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(4155, -2739)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform28"]
+position = Vector2(-99, -117)
+shape = SubResource("RectangleShape2D_gaelb")
+
+[node name="Platform29" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(4155, -2739)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform29"]
+position = Vector2(-3, -213)
+shape = SubResource("RectangleShape2D_a2pvm")
+
+[node name="Platform30" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(4155, -2520)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/Platforms/Platform30"]
+polygon = PackedVector2Array(-507, -240, -411, -240, -411, -144, -315, -144, -315, -96, 213, -96, 213, -192, 261, -192, 261, -384, 117, -384, 117, -480, 357, -480, 357, -1056, 261, -1056, 261, -1104, 357, -1104, 357, -1200, 261, -1200, 261, -1248, 357, -1248, 357, -1680, 69, -1680, 69, -1728, 165, -1728, 165, -1824, 261, -1824, 261, -1920, 357, -1920, 357, -2208, -171, -2208, -171, -2352, -123, -2352, -123, -2496, -27, -2496, -27, -2592, 69, -2592, 69, -2496, 261, -2496, 261, -2688, 357, -2688, 357, -2880, -123, -2880, -123, -3120, 357, -3120, 357, -3168, 453, -3168, 453, -3264, 549, -3264, 549, -3360, 741, -3360, 741, -3456, 1221, -3456, 1221, -3360, 1797, -3360, 1797, -3264, 1317, -3264, 1317, -3168, 1797, -3168, 1797, -2976, 1509, -2976, 1509, -2928, 1461, -2928, 1461, -2832, 1509, -2832, 1509, -2736, 1221, -2736, 453, -2736, 453, 96, -507, 96)
+
+[node name="Platform31" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(4026, -3282)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/Platforms/Platform31"]
+polygon = PackedVector2Array(438, 186, 438, -102, 198, -102, 198, -198, 102, -198, 102, -102, -90, -102, -90, -294, 6, -294, 6, -342, -90, -342, -90, -438, 6, -438, 6, -486, -90, -486, -90, -678, 435, -678, 438, -678, 438, -822, 102, -822, 102, -966, 6, -966, 6, -1062, -90, -1062, -90, -1878, 6, -1878, 6, -1926, -90, -1926, -90, -2118, -42, -2118, -42, -2358, -90, -2358, -90, -2790, -186, -2790, -186, 90, 390, 90, 390, 186)
+
+[node name="Platform34" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(5760, -5328)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform34"]
+position = Vector2(120, 24)
+shape = SubResource("RectangleShape2D_hf1qb")
+
+[node name="Platform35" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(6048, -5568)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform35"]
+position = Vector2(-24, -24)
+shape = SubResource("RectangleShape2D_c1vf7")
+
+[node name="Platform36" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(5712, -5040)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform36"]
+shape = SubResource("RectangleShape2D_60g7c")
+
+[node name="Platform37" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(5904, -5040)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform37"]
+shape = SubResource("RectangleShape2D_so10e")
+
+[node name="Platform38" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(5760, -4848)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform38"]
+position = Vector2(-24, 96)
+shape = SubResource("RectangleShape2D_4hkmx")
+
+[node name="Platform39" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(5760, -4272)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform39"]
+shape = SubResource("RectangleShape2D_63lkr")
+
+[node name="Platform40" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(6048, -4272)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform40"]
+shape = SubResource("RectangleShape2D_er8ug")
+
+[node name="Platform41" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(5427, -4272)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/Platforms/Platform41"]
+polygon = PackedVector2Array(45, -72, 141, -72, 141, -168, 333, -168, 333, -264, 237, -264, 237, -600, 45, -600, 45, -888, 138, -888, 141, -888, 141, -984, -51, -984, -51, 1080, 1485, 1080, 1485, 792, 1482, 312, 1341, 312, 1341, 600, 1389, 600, 1389, 792, 1197, 792, 1197, 888, 333, 888, 333, 792, 237, 792, 237, 696, 45, 696, 45, 504)
+
+[node name="Platform42" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(6048, -4008)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/Platforms/Platform42"]
+polygon = PackedVector2Array(96, -48, -288, -48, -288, -96, -528, -96, -528, 48, 96, 48)
+
+[node name="Platform43" type="StaticBody2D" parent="Level/Platforms"]
+position = Vector2(6048, -4512)
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Platforms/Platform43"]
+shape = SubResource("RectangleShape2D_hyjkl")
+
 [node name="Ladders" type="Node2D" parent="Level"]
 
 [node name="Ladder" parent="Level/Ladders" instance=ExtResource("2_00s35")]
 
+[node name="Ladder12" parent="Level/Ladders" instance=ExtResource("2_00s35")]
+position = Vector2(489, 204)
+scale = Vector2(1, 0.35)
+
+[node name="Ladder13" parent="Level/Ladders" instance=ExtResource("2_00s35")]
+position = Vector2(1257, 204)
+scale = Vector2(1, 0.35)
+
 [node name="Ladder2" parent="Level/Ladders" instance=ExtResource("2_00s35")]
 position = Vector2(1017, 297)
+
+[node name="Ladder3" parent="Level/Ladders" instance=ExtResource("2_00s35")]
+position = Vector2(2553, 210)
+scale = Vector2(1, 1.1)
+
+[node name="Ladder4" parent="Level/Ladders" instance=ExtResource("2_00s35")]
+position = Vector2(2937, -114)
+scale = Vector2(1, 1.15)
+
+[node name="Ladder5" parent="Level/Ladders" instance=ExtResource("2_00s35")]
+position = Vector2(2409, -399)
+scale = Vector2(1, 0.813)
+
+[node name="Ladder6" parent="Level/Ladders" instance=ExtResource("2_00s35")]
+position = Vector2(2937, -909)
+
+[node name="Ladder7" parent="Level/Ladders" instance=ExtResource("2_00s35")]
+position = Vector2(2745, -1194)
+
+[node name="Ladder8" parent="Level/Ladders" instance=ExtResource("2_00s35")]
+position = Vector2(2409, -1290)
+
+[node name="Ladder9" parent="Level/Ladders" instance=ExtResource("2_00s35")]
+position = Vector2(2937, -1671)
+
+[node name="Ladder10" parent="Level/Ladders" instance=ExtResource("2_00s35")]
+position = Vector2(2505, -1941)
+scale = Vector2(1, 0.8)
+
+[node name="Ladder11" parent="Level/Ladders" instance=ExtResource("2_00s35")]
+position = Vector2(2457, -2403)
+scale = Vector2(1, 1.3)
+
+[node name="Ladder14" parent="Level/Ladders" instance=ExtResource("2_00s35")]
+position = Vector2(4089, -2862)
+scale = Vector2(1, 1.1)
+
+[node name="Ladder15" parent="Level/Ladders" instance=ExtResource("2_00s35")]
+position = Vector2(4473, -3213)
+scale = Vector2(1, 1.35)
+
+[node name="Ladder17" parent="Level/Ladders" instance=ExtResource("2_00s35")]
+position = Vector2(4473, -3954)
+scale = Vector2(1, 1.175)
+
+[node name="Ladder16" parent="Level/Ladders" instance=ExtResource("2_00s35")]
+position = Vector2(4041, -3522)
+scale = Vector2(1, 0.8)
+
+[node name="Ladder18" parent="Level/Ladders" instance=ExtResource("2_00s35")]
+position = Vector2(3945, -4632)
+scale = Vector2(1, 1.8)
+
+[node name="Ladder19" parent="Level/Ladders" instance=ExtResource("2_00s35")]
+position = Vector2(4041, -5130)
+scale = Vector2(1, 0.7)
+
+[node name="Ladder20" parent="Level/Ladders" instance=ExtResource("2_00s35")]
+position = Vector2(3993, -5481)
+scale = Vector2(1, 1.25)
+
+[node name="Ladder21" parent="Level/Ladders" instance=ExtResource("2_00s35")]
+position = Vector2(5961, -5544)
+scale = Vector2(1, 1.1)
+
+[node name="Ladder22" parent="Level/Ladders" instance=ExtResource("2_00s35")]
+position = Vector2(5673, -5307)
+scale = Vector2(1, 0.45)
+
+[node name="Ladder23" parent="Level/Ladders" instance=ExtResource("2_00s35")]
+position = Vector2(5673, -4755)
+scale = Vector2(1, 0.9)
+
+[node name="Ladder24" parent="Level/Ladders" instance=ExtResource("2_00s35")]
+position = Vector2(5481, -3945)
+scale = Vector2(1, 1.3)
 
 [node name="Boundaries" type="Node2D" parent="Level"]
 
@@ -118,22 +658,304 @@ collision_layer = 2
 shape = SubResource("RectangleShape2D_px2e3")
 debug_color = Color(0.941176, 0, 0, 0.419608)
 
-[node name="KillBox" parent="Level/Boundaries" instance=ExtResource("3_5yies")]
-position = Vector2(0, 702)
-script = ExtResource("4_g4fv7")
+[node name="StaticBody2D2" type="StaticBody2D" parent="Level/Boundaries"]
+position = Vector2(2223, -438)
+scale = Vector2(8.1, 24.7)
+collision_layer = 2
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_opqcn")
-autoplay = true
-script = ExtResource("4_ypkke")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Boundaries/StaticBody2D2"]
+position = Vector2(0, -50.081)
+shape = SubResource("RectangleShape2D_px2e3")
+debug_color = Color(0.941176, 0, 0, 0.419608)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Level/Boundaries"]
+position = Vector2(6225, -4206)
+scale = Vector2(8.1, 24.7)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Boundaries/StaticBody2D3"]
+position = Vector2(0, -50.081)
+shape = SubResource("RectangleShape2D_xvgeu")
+debug_color = Color(0.941176, 0, 0, 0.419608)
+
+[node name="KillBox" parent="Level/Boundaries" instance=ExtResource("3_5yies")]
+position = Vector2(2070, 711)
+scale = Vector2(29.6, 5.2)
+
+[node name="KillBox2" parent="Level/Boundaries" instance=ExtResource("3_5yies")]
+position = Vector2(3615, -2367)
+scale = Vector2(29.6, 5.2)
+
+[node name="KillBox3" parent="Level/Boundaries" instance=ExtResource("3_5yies")]
+position = Vector2(5952, -4080)
+scale = Vector2(19.1, 1.7)
+
+[node name="KillBox4" parent="Level/Boundaries" instance=ExtResource("3_5yies")]
+position = Vector2(6048, -4557)
+scale = Vector2(4.9, 1.7)
+
+[node name="RoomTransitions" type="Node2D" parent="Level"]
+
+[node name="Room1" type="Area2D" parent="Level/RoomTransitions"]
+position = Vector2(2811, -132)
+script = ExtResource("5_8q0ib")
+limit_top = -100
+limit_right = 3072
+limit_bottom = 576
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RoomTransitions/Room1"]
+position = Vector2(-159, 0)
+shape = SubResource("RectangleShape2D_0arm6")
+
+[node name="Room2-1" type="Area2D" parent="Level/RoomTransitions"]
+position = Vector2(2811, -153)
+script = ExtResource("5_8q0ib")
+limit_left = 2304
+limit_top = -868
+limit_right = 3072
+limit_bottom = -192
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RoomTransitions/Room2-1"]
+position = Vector2(-159, 0)
+shape = SubResource("RectangleShape2D_hbvek")
+
+[node name="Room2-2" type="Area2D" parent="Level/RoomTransitions"]
+position = Vector2(2811, -930)
+script = ExtResource("5_8q0ib")
+limit_left = 2304
+limit_top = -868
+limit_right = 3072
+limit_bottom = -192
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RoomTransitions/Room2-2"]
+position = Vector2(-159, 0)
+shape = SubResource("RectangleShape2D_arpmh")
+
+[node name="Room3-1" type="Area2D" parent="Level/RoomTransitions"]
+position = Vector2(2811, -951)
+script = ExtResource("5_8q0ib")
+limit_left = 2304
+limit_top = -1632
+limit_right = 3072
+limit_bottom = -960
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RoomTransitions/Room3-1"]
+position = Vector2(-159, 0)
+shape = SubResource("RectangleShape2D_p7wri")
+
+[node name="Room3-2" type="Area2D" parent="Level/RoomTransitions"]
+position = Vector2(2811, -1677)
+script = ExtResource("5_8q0ib")
+limit_left = 2304
+limit_top = -1632
+limit_right = 3072
+limit_bottom = -960
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RoomTransitions/Room3-2"]
+position = Vector2(-159, 0)
+shape = SubResource("RectangleShape2D_c32q5")
+
+[node name="Room4-1" type="Area2D" parent="Level/RoomTransitions"]
+position = Vector2(2811, -1677)
+script = ExtResource("5_8q0ib")
+limit_left = 2304
+limit_top = -2403
+limit_right = 3072
+limit_bottom = -1725
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RoomTransitions/Room4-1"]
+position = Vector2(-159, -24)
+shape = SubResource("RectangleShape2D_laqlr")
+
+[node name="Room4-2" type="Area2D" parent="Level/RoomTransitions"]
+position = Vector2(2811, -1677)
+script = ExtResource("5_8q0ib")
+limit_left = 2304
+limit_top = -2403
+limit_right = 3072
+limit_bottom = -1725
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RoomTransitions/Room4-2"]
+position = Vector2(-159, -747)
+shape = SubResource("RectangleShape2D_vmm1g")
+
+[node name="Room5-1" type="Area2D" parent="Level/RoomTransitions"]
+position = Vector2(2811, -1677)
+script = ExtResource("5_8q0ib")
+limit_left = 2304
+limit_top = -3163
+limit_right = 4608
+limit_bottom = -2496
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RoomTransitions/Room5-1"]
+position = Vector2(-159, -777)
+shape = SubResource("RectangleShape2D_s7a1t")
+
+[node name="Room5-2" type="Area2D" parent="Level/RoomTransitions"]
+position = Vector2(4488, -3222)
+script = ExtResource("5_8q0ib")
+limit_left = 2304
+limit_top = -3163
+limit_right = 4608
+limit_bottom = -2496
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RoomTransitions/Room5-2"]
+shape = SubResource("RectangleShape2D_2guy4")
+
+[node name="Room6-1" type="Area2D" parent="Level/RoomTransitions"]
+position = Vector2(4488, -3255)
+script = ExtResource("5_8q0ib")
+limit_left = 3840
+limit_top = -3942
+limit_right = 4608
+limit_bottom = -3261
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RoomTransitions/Room6-1"]
+shape = SubResource("RectangleShape2D_q8vsu")
+
+[node name="Room6-2" type="Area2D" parent="Level/RoomTransitions"]
+position = Vector2(4488, -3987)
+script = ExtResource("5_8q0ib")
+limit_left = 3840
+limit_top = -3939
+limit_right = 4608
+limit_bottom = -3261
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RoomTransitions/Room6-2"]
+shape = SubResource("RectangleShape2D_x6g7c")
+
+[node name="Room7-1" type="Area2D" parent="Level/RoomTransitions"]
+position = Vector2(4488, -4017)
+script = ExtResource("5_8q0ib")
+limit_left = 3840
+limit_top = -4704
+limit_right = 4608
+limit_bottom = -4032
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RoomTransitions/Room7-1"]
+shape = SubResource("RectangleShape2D_x6g7c")
+
+[node name="Room7-2" type="Area2D" parent="Level/RoomTransitions"]
+position = Vector2(3960, -4752)
+script = ExtResource("5_8q0ib")
+limit_left = 3840
+limit_top = -4704
+limit_right = 4608
+limit_bottom = -4032
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RoomTransitions/Room7-2"]
+shape = SubResource("RectangleShape2D_tth1p")
+
+[node name="Room8-1" type="Area2D" parent="Level/RoomTransitions"]
+position = Vector2(3960, -4776)
+script = ExtResource("5_8q0ib")
+limit_left = 3840
+limit_top = -5496
+limit_right = 4608
+limit_bottom = -4800
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RoomTransitions/Room8-1"]
+shape = SubResource("RectangleShape2D_ytyh8")
+
+[node name="Room8-2" type="Area2D" parent="Level/RoomTransitions"]
+position = Vector2(3960, -5487)
+script = ExtResource("5_8q0ib")
+limit_left = 3840
+limit_top = -5496
+limit_right = 4608
+limit_bottom = -4800
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RoomTransitions/Room8-2"]
+shape = SubResource("RectangleShape2D_6amj4")
+
+[node name="Room9-1" type="Area2D" parent="Level/RoomTransitions"]
+position = Vector2(3969, -5523)
+script = ExtResource("5_8q0ib")
+limit_left = 3840
+limit_top = -6235
+limit_right = 6144
+limit_bottom = -5568
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RoomTransitions/Room9-1"]
+shape = SubResource("RectangleShape2D_e0ucg")
+
+[node name="Room9-2" type="Area2D" parent="Level/RoomTransitions"]
+position = Vector2(5976, -5571)
+script = ExtResource("5_8q0ib")
+limit_left = 3840
+limit_top = -6235
+limit_right = 6144
+limit_bottom = -5568
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RoomTransitions/Room9-2"]
+shape = SubResource("RectangleShape2D_aglj4")
+
+[node name="Room10-1" type="Area2D" parent="Level/RoomTransitions"]
+position = Vector2(5976, -5538)
+script = ExtResource("5_8q0ib")
+limit_left = 5376
+limit_top = -5496
+limit_right = 6144
+limit_bottom = -4800
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RoomTransitions/Room10-1"]
+shape = SubResource("RectangleShape2D_wl2b4")
+
+[node name="Room10-2" type="Area2D" parent="Level/RoomTransitions"]
+position = Vector2(5976, -4761)
+script = ExtResource("5_8q0ib")
+limit_left = 5376
+limit_top = -5496
+limit_right = 6144
+limit_bottom = -4800
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RoomTransitions/Room10-2"]
+shape = SubResource("RectangleShape2D_irr71")
+
+[node name="Room11-1" type="Area2D" parent="Level/RoomTransitions"]
+position = Vector2(5976, -4728)
+script = ExtResource("5_8q0ib")
+limit_left = 5376
+limit_top = -4704
+limit_right = 6144
+limit_bottom = -4032
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RoomTransitions/Room11-1"]
+shape = SubResource("RectangleShape2D_04i4r")
+
+[node name="Room11-2" type="Area2D" parent="Level/RoomTransitions"]
+position = Vector2(5679, -4002)
+script = ExtResource("5_8q0ib")
+limit_left = 5376
+limit_top = -4704
+limit_right = 6144
+limit_bottom = -4032
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RoomTransitions/Room11-2"]
+shape = SubResource("RectangleShape2D_m4sg2")
+
+[node name="Room12-1" type="Area2D" parent="Level/RoomTransitions"]
+position = Vector2(5679, -3969)
+script = ExtResource("5_8q0ib")
+limit_left = 5376
+limit_top = -3939
+limit_right = 6864
+limit_bottom = -3261
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RoomTransitions/Room12-1"]
+shape = SubResource("RectangleShape2D_m4ck7")
 
 [node name="MegaMan" parent="." instance=ExtResource("2_80gfe")]
-position = Vector2(420, 324)
+position = Vector2(387, 327)
 
 [node name="Camera2D" type="Camera2D" parent="MegaMan"]
 limit_left = 0
-limit_top = -48
-limit_bottom = 648
+limit_top = -100
+limit_bottom = 576
+script = ExtResource("8_7y8sf")
+start_top = -100
+start_right = 3072
+start_bottom = 576
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -144,20 +966,334 @@ offset_right = 41.0
 offset_bottom = 95.0
 scale = Vector2(3, 3)
 
+[node name="Texts" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReadyLabel" type="Label" parent="UI/Texts"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -62.0
+offset_right = 26.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("11_op0o4")
+text = "READY"
+
 [node name="Spawners" type="Node2D" parent="."]
 
 [node name="HeliSpawner" parent="Spawners" instance=ExtResource("8_y4dhh")]
-position = Vector2(1203, 48)
+position = Vector2(816, 135)
+
+[node name="HeliSpawner4" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(1707, 135)
 
 [node name="HeliSpawner2" parent="Spawners" instance=ExtResource("8_y4dhh")]
-position = Vector2(1674, 159)
+position = Vector2(975, 312)
+
+[node name="HeliSpawner5" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(1896, 312)
+
+[node name="HeliSpawner3" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(1053, 168)
+
+[node name="HeliSpawner7" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(5610, -6000)
+
+[node name="HeliSpawner8" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(5769, -5823)
+
+[node name="HeliSpawner9" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(5847, -5967)
+
+[node name="HeliSpawner6" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(1983, 168)
+
+[node name="BlasterSpawner" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(2472, 99)
+chosen_enemy = 1
+
+[node name="BlasterSpawner2" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(2856, 243)
+chosen_enemy = 1
+
+[node name="BlasterSpawner3" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(2952, -429)
+chosen_enemy = 1
+
+[node name="BlasterSpawner4" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(2664, -621)
+chosen_enemy = 1
+
+[node name="BlasterSpawner5" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(2760, -717)
+chosen_enemy = 1
+
+[node name="BlasterSpawner6" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(2520, -1101)
+starting_direction = 1
+chosen_enemy = 1
+
+[node name="BlasterSpawner7" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(2664, -1293)
+chosen_enemy = 1
+
+[node name="BlasterSpawner8" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(2856, -1485)
+chosen_enemy = 1
+
+[node name="BlasterSpawner9" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(2664, -1773)
+starting_direction = 1
+chosen_enemy = 1
+
+[node name="BlasterSpawner10" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(2856, -2157)
+chosen_enemy = 1
+
+[node name="BlasterSpawner11" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(2760, -2301)
+chosen_enemy = 1
+
+[node name="SuperCutterSpawner" parent="Spawners" instance=ExtResource("13_vuafr")]
+position = Vector2(2736, -2682)
+
+[node name="FleaSpawner" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(3204, -2637)
+chosen_enemy = 2
+
+[node name="FleaSpawner2" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(3315, -2733)
+chosen_enemy = 2
+
+[node name="FleaSpawner3" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(3411, -2829)
+chosen_enemy = 2
+
+[node name="AdSuzySpawner" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(4056, -2688)
+chosen_enemy = 3
+
+[node name="AdSuzySpawner2" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(4152, -2880)
+chosen_enemy = 3
+
+[node name="AdSuzySpawner3" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(4392, -2784)
+starting_direction = 1
+chosen_enemy = 3
+
+[node name="AdSuzySpawner4" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(4104, -3552)
+chosen_enemy = 3
+
+[node name="AdSuzySpawner5" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(4488, -3549)
+starting_direction = 1
+chosen_enemy = 3
+
+[node name="AdSuzySpawner6" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(4392, -3744)
+starting_direction = 1
+chosen_enemy = 3
+
+[node name="AdSuzySpawner7" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(4200, -3648)
+starting_direction = 1
+chosen_enemy = 3
+
+[node name="AdSuzySpawner8" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(4248, -4176)
+chosen_enemy = 3
+
+[node name="AdSuzySpawner9" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(4200, -4224)
+starting_direction = 1
+chosen_enemy = 3
+
+[node name="AdSuzySpawner10" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(4392, -4413)
+starting_direction = 1
+chosen_enemy = 3
+
+[node name="AdSuzySpawner11" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(4488, -4509)
+starting_direction = 1
+chosen_enemy = 3
+
+[node name="AdSuzySpawner12" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(3960, -4989)
+starting_direction = 1
+chosen_enemy = 3
+
+[node name="AdSuzySpawner13" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(4008, -5136)
+chosen_enemy = 3
+
+[node name="AdSuzySpawner14" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(3960, -5277)
+starting_direction = 1
+chosen_enemy = 3
+
+[node name="AdSuzySpawner15" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(4248, -5088)
+starting_direction = 1
+chosen_enemy = 3
+
+[node name="AdSuzySpawner16" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(4440, -5232)
+chosen_enemy = 3
+
+[node name="MambuSpawner" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(6141, -5112)
+spawn_timer_sec = 8.0
+chosen_enemy = 4
+auto_spawning = true
+
+[node name="MambuSpawner2" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(6144, -4347)
+spawn_timer_sec = 8.0
+chosen_enemy = 4
+auto_spawning = true
+
+[node name="BigEyeSpawner" parent="Spawners" instance=ExtResource("8_y4dhh")]
+position = Vector2(6144, -3492)
+spawn_timer_sec = 8.0
+chosen_enemy = 5
+
+[node name="SuperCutterSpawner2" parent="Spawners" instance=ExtResource("13_vuafr")]
+position = Vector2(4272, -5754)
 
 [connection signal="body_entered" from="Level/Ladders/Ladder" to="MegaMan" method="_on_ladder_body_entered"]
 [connection signal="body_exited" from="Level/Ladders/Ladder" to="MegaMan" method="_on_ladder_body_exited"]
 [connection signal="ladder_x_pos" from="Level/Ladders/Ladder" to="MegaMan" method="_on_ladder_ladder_x_pos"]
+[connection signal="body_entered" from="Level/Ladders/Ladder12" to="MegaMan" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Level/Ladders/Ladder12" to="MegaMan" method="_on_ladder_body_exited"]
+[connection signal="ladder_x_pos" from="Level/Ladders/Ladder12" to="MegaMan" method="_on_ladder_ladder_x_pos"]
+[connection signal="body_entered" from="Level/Ladders/Ladder13" to="MegaMan" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Level/Ladders/Ladder13" to="MegaMan" method="_on_ladder_body_exited"]
+[connection signal="ladder_x_pos" from="Level/Ladders/Ladder13" to="MegaMan" method="_on_ladder_ladder_x_pos"]
 [connection signal="body_entered" from="Level/Ladders/Ladder2" to="MegaMan" method="_on_ladder_body_entered"]
 [connection signal="body_exited" from="Level/Ladders/Ladder2" to="MegaMan" method="_on_ladder_body_exited"]
 [connection signal="ladder_x_pos" from="Level/Ladders/Ladder2" to="MegaMan" method="_on_ladder_ladder_x_pos"]
+[connection signal="body_entered" from="Level/Ladders/Ladder3" to="MegaMan" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Level/Ladders/Ladder3" to="MegaMan" method="_on_ladder_body_exited"]
+[connection signal="ladder_x_pos" from="Level/Ladders/Ladder3" to="MegaMan" method="_on_ladder_ladder_x_pos"]
+[connection signal="body_entered" from="Level/Ladders/Ladder4" to="MegaMan" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Level/Ladders/Ladder4" to="MegaMan" method="_on_ladder_body_exited"]
+[connection signal="ladder_x_pos" from="Level/Ladders/Ladder4" to="MegaMan" method="_on_ladder_ladder_x_pos"]
+[connection signal="body_entered" from="Level/Ladders/Ladder5" to="MegaMan" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Level/Ladders/Ladder5" to="MegaMan" method="_on_ladder_body_exited"]
+[connection signal="ladder_x_pos" from="Level/Ladders/Ladder5" to="MegaMan" method="_on_ladder_ladder_x_pos"]
+[connection signal="body_entered" from="Level/Ladders/Ladder6" to="MegaMan" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Level/Ladders/Ladder6" to="MegaMan" method="_on_ladder_body_exited"]
+[connection signal="ladder_x_pos" from="Level/Ladders/Ladder6" to="MegaMan" method="_on_ladder_ladder_x_pos"]
+[connection signal="body_entered" from="Level/Ladders/Ladder7" to="MegaMan" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Level/Ladders/Ladder7" to="MegaMan" method="_on_ladder_body_exited"]
+[connection signal="ladder_x_pos" from="Level/Ladders/Ladder7" to="MegaMan" method="_on_ladder_ladder_x_pos"]
+[connection signal="body_entered" from="Level/Ladders/Ladder8" to="MegaMan" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Level/Ladders/Ladder8" to="MegaMan" method="_on_ladder_body_exited"]
+[connection signal="ladder_x_pos" from="Level/Ladders/Ladder8" to="MegaMan" method="_on_ladder_ladder_x_pos"]
+[connection signal="body_entered" from="Level/Ladders/Ladder9" to="MegaMan" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Level/Ladders/Ladder9" to="MegaMan" method="_on_ladder_body_exited"]
+[connection signal="ladder_x_pos" from="Level/Ladders/Ladder9" to="MegaMan" method="_on_ladder_ladder_x_pos"]
+[connection signal="body_entered" from="Level/Ladders/Ladder10" to="MegaMan" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Level/Ladders/Ladder10" to="MegaMan" method="_on_ladder_body_exited"]
+[connection signal="ladder_x_pos" from="Level/Ladders/Ladder10" to="MegaMan" method="_on_ladder_ladder_x_pos"]
+[connection signal="body_entered" from="Level/Ladders/Ladder11" to="MegaMan" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Level/Ladders/Ladder11" to="MegaMan" method="_on_ladder_body_exited"]
+[connection signal="ladder_x_pos" from="Level/Ladders/Ladder11" to="MegaMan" method="_on_ladder_ladder_x_pos"]
+[connection signal="body_entered" from="Level/Ladders/Ladder14" to="MegaMan" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Level/Ladders/Ladder14" to="MegaMan" method="_on_ladder_body_exited"]
+[connection signal="ladder_x_pos" from="Level/Ladders/Ladder14" to="MegaMan" method="_on_ladder_ladder_x_pos"]
+[connection signal="body_entered" from="Level/Ladders/Ladder15" to="MegaMan" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Level/Ladders/Ladder15" to="MegaMan" method="_on_ladder_body_exited"]
+[connection signal="ladder_x_pos" from="Level/Ladders/Ladder15" to="MegaMan" method="_on_ladder_ladder_x_pos"]
+[connection signal="body_entered" from="Level/Ladders/Ladder17" to="MegaMan" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Level/Ladders/Ladder17" to="MegaMan" method="_on_ladder_body_exited"]
+[connection signal="ladder_x_pos" from="Level/Ladders/Ladder17" to="MegaMan" method="_on_ladder_ladder_x_pos"]
+[connection signal="body_entered" from="Level/Ladders/Ladder16" to="MegaMan" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Level/Ladders/Ladder16" to="MegaMan" method="_on_ladder_body_exited"]
+[connection signal="ladder_x_pos" from="Level/Ladders/Ladder16" to="MegaMan" method="_on_ladder_ladder_x_pos"]
+[connection signal="body_entered" from="Level/Ladders/Ladder18" to="MegaMan" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Level/Ladders/Ladder18" to="MegaMan" method="_on_ladder_body_exited"]
+[connection signal="ladder_x_pos" from="Level/Ladders/Ladder18" to="MegaMan" method="_on_ladder_ladder_x_pos"]
+[connection signal="body_entered" from="Level/Ladders/Ladder19" to="MegaMan" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Level/Ladders/Ladder19" to="MegaMan" method="_on_ladder_body_exited"]
+[connection signal="ladder_x_pos" from="Level/Ladders/Ladder19" to="MegaMan" method="_on_ladder_ladder_x_pos"]
+[connection signal="body_entered" from="Level/Ladders/Ladder20" to="MegaMan" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Level/Ladders/Ladder20" to="MegaMan" method="_on_ladder_body_exited"]
+[connection signal="ladder_x_pos" from="Level/Ladders/Ladder20" to="MegaMan" method="_on_ladder_ladder_x_pos"]
+[connection signal="body_entered" from="Level/Ladders/Ladder21" to="MegaMan" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Level/Ladders/Ladder21" to="MegaMan" method="_on_ladder_body_exited"]
+[connection signal="ladder_x_pos" from="Level/Ladders/Ladder21" to="MegaMan" method="_on_ladder_ladder_x_pos"]
+[connection signal="body_entered" from="Level/Ladders/Ladder22" to="MegaMan" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Level/Ladders/Ladder22" to="MegaMan" method="_on_ladder_body_exited"]
+[connection signal="ladder_x_pos" from="Level/Ladders/Ladder22" to="MegaMan" method="_on_ladder_ladder_x_pos"]
+[connection signal="body_entered" from="Level/Ladders/Ladder23" to="MegaMan" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Level/Ladders/Ladder23" to="MegaMan" method="_on_ladder_body_exited"]
+[connection signal="ladder_x_pos" from="Level/Ladders/Ladder23" to="MegaMan" method="_on_ladder_ladder_x_pos"]
+[connection signal="body_entered" from="Level/Ladders/Ladder24" to="MegaMan" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Level/Ladders/Ladder24" to="MegaMan" method="_on_ladder_body_exited"]
+[connection signal="ladder_x_pos" from="Level/Ladders/Ladder24" to="MegaMan" method="_on_ladder_ladder_x_pos"]
 [connection signal="body_entered" from="Level/Boundaries/KillBox" to="Level/Boundaries/KillBox" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Boundaries/KillBox2" to="Level/Boundaries/KillBox2" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Boundaries/KillBox3" to="Level/Boundaries/KillBox3" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/Boundaries/KillBox4" to="Level/Boundaries/KillBox4" method="_on_body_entered"]
+[connection signal="body_entered" from="Level/RoomTransitions/Room1" to="Level/RoomTransitions/Room1" method="_on_body_entered"]
+[connection signal="room_entered" from="Level/RoomTransitions/Room1" to="MegaMan/Camera2D" method="_on_room_entered"]
+[connection signal="body_entered" from="Level/RoomTransitions/Room2-1" to="Level/RoomTransitions/Room2-1" method="_on_body_entered"]
+[connection signal="room_entered" from="Level/RoomTransitions/Room2-1" to="MegaMan/Camera2D" method="_on_room_entered"]
+[connection signal="body_entered" from="Level/RoomTransitions/Room2-2" to="Level/RoomTransitions/Room2-2" method="_on_body_entered"]
+[connection signal="room_entered" from="Level/RoomTransitions/Room2-2" to="MegaMan/Camera2D" method="_on_room_entered"]
+[connection signal="body_entered" from="Level/RoomTransitions/Room3-1" to="Level/RoomTransitions/Room3-1" method="_on_body_entered"]
+[connection signal="room_entered" from="Level/RoomTransitions/Room3-1" to="MegaMan/Camera2D" method="_on_room_entered"]
+[connection signal="body_entered" from="Level/RoomTransitions/Room3-2" to="Level/RoomTransitions/Room3-2" method="_on_body_entered"]
+[connection signal="room_entered" from="Level/RoomTransitions/Room3-2" to="MegaMan/Camera2D" method="_on_room_entered"]
+[connection signal="body_entered" from="Level/RoomTransitions/Room4-1" to="Level/RoomTransitions/Room4-1" method="_on_body_entered"]
+[connection signal="room_entered" from="Level/RoomTransitions/Room4-1" to="MegaMan/Camera2D" method="_on_room_entered"]
+[connection signal="body_entered" from="Level/RoomTransitions/Room4-2" to="Level/RoomTransitions/Room4-2" method="_on_body_entered"]
+[connection signal="room_entered" from="Level/RoomTransitions/Room4-2" to="MegaMan/Camera2D" method="_on_room_entered"]
+[connection signal="body_entered" from="Level/RoomTransitions/Room5-1" to="Level/RoomTransitions/Room5-1" method="_on_body_entered"]
+[connection signal="room_entered" from="Level/RoomTransitions/Room5-1" to="MegaMan/Camera2D" method="_on_room_entered"]
+[connection signal="body_entered" from="Level/RoomTransitions/Room5-2" to="Level/RoomTransitions/Room5-2" method="_on_body_entered"]
+[connection signal="room_entered" from="Level/RoomTransitions/Room5-2" to="MegaMan/Camera2D" method="_on_room_entered"]
+[connection signal="body_entered" from="Level/RoomTransitions/Room6-1" to="Level/RoomTransitions/Room6-1" method="_on_body_entered"]
+[connection signal="room_entered" from="Level/RoomTransitions/Room6-1" to="MegaMan/Camera2D" method="_on_room_entered"]
+[connection signal="body_entered" from="Level/RoomTransitions/Room6-2" to="Level/RoomTransitions/Room6-2" method="_on_body_entered"]
+[connection signal="room_entered" from="Level/RoomTransitions/Room6-2" to="MegaMan/Camera2D" method="_on_room_entered"]
+[connection signal="body_entered" from="Level/RoomTransitions/Room7-1" to="Level/RoomTransitions/Room7-1" method="_on_body_entered"]
+[connection signal="room_entered" from="Level/RoomTransitions/Room7-1" to="MegaMan/Camera2D" method="_on_room_entered"]
+[connection signal="body_entered" from="Level/RoomTransitions/Room7-2" to="Level/RoomTransitions/Room7-2" method="_on_body_entered"]
+[connection signal="room_entered" from="Level/RoomTransitions/Room7-2" to="MegaMan/Camera2D" method="_on_room_entered"]
+[connection signal="body_entered" from="Level/RoomTransitions/Room8-1" to="Level/RoomTransitions/Room8-1" method="_on_body_entered"]
+[connection signal="room_entered" from="Level/RoomTransitions/Room8-1" to="MegaMan/Camera2D" method="_on_room_entered"]
+[connection signal="body_entered" from="Level/RoomTransitions/Room8-2" to="Level/RoomTransitions/Room8-2" method="_on_body_entered"]
+[connection signal="room_entered" from="Level/RoomTransitions/Room8-2" to="MegaMan/Camera2D" method="_on_room_entered"]
+[connection signal="body_entered" from="Level/RoomTransitions/Room9-1" to="Level/RoomTransitions/Room9-1" method="_on_body_entered"]
+[connection signal="room_entered" from="Level/RoomTransitions/Room9-1" to="MegaMan/Camera2D" method="_on_room_entered"]
+[connection signal="body_entered" from="Level/RoomTransitions/Room9-2" to="Level/RoomTransitions/Room9-2" method="_on_body_entered"]
+[connection signal="room_entered" from="Level/RoomTransitions/Room9-2" to="MegaMan/Camera2D" method="_on_room_entered"]
+[connection signal="body_entered" from="Level/RoomTransitions/Room10-1" to="Level/RoomTransitions/Room10-1" method="_on_body_entered"]
+[connection signal="room_entered" from="Level/RoomTransitions/Room10-1" to="MegaMan/Camera2D" method="_on_room_entered"]
+[connection signal="body_entered" from="Level/RoomTransitions/Room10-2" to="Level/RoomTransitions/Room10-2" method="_on_body_entered"]
+[connection signal="room_entered" from="Level/RoomTransitions/Room10-2" to="MegaMan/Camera2D" method="_on_room_entered"]
+[connection signal="body_entered" from="Level/RoomTransitions/Room11-1" to="Level/RoomTransitions/Room11-1" method="_on_body_entered"]
+[connection signal="room_entered" from="Level/RoomTransitions/Room11-1" to="MegaMan/Camera2D" method="_on_room_entered"]
+[connection signal="body_entered" from="Level/RoomTransitions/Room11-2" to="Level/RoomTransitions/Room11-2" method="_on_body_entered"]
+[connection signal="room_entered" from="Level/RoomTransitions/Room11-2" to="MegaMan/Camera2D" method="_on_room_entered"]
+[connection signal="body_entered" from="Level/RoomTransitions/Room12-1" to="Level/RoomTransitions/Room12-1" method="_on_body_entered"]
+[connection signal="room_entered" from="Level/RoomTransitions/Room12-1" to="MegaMan/Camera2D" method="_on_room_entered"]
 [connection signal="change_health" from="MegaMan" to="UI/MMHealthBar" method="_on_mega_man_change_health"]
-[connection signal="defeated" from="MegaMan" to="Music" method="_on_mega_man_defeated"]

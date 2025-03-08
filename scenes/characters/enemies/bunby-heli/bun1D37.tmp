@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://cyfqbe7mk5c3x"]
+
+[ext_resource type="Script" path="res://scenes/characters/enemies/bunby-heli/bunby_heli.gd" id="1_0lmum"]
+[ext_resource type="Texture2D" uid="uid://b0g6y6wydt3s4" path="res://assets/characters/enemies/bunby heli/bunby-heli-1.png" id="1_y0dnp"]
+[ext_resource type="Texture2D" uid="uid://btub1uwvbfnm6" path="res://assets/characters/enemies/bunby heli/bunby-heli-2.png" id="2_0n211"]
+[ext_resource type="AudioStream" uid="uid://dmfpck1lguqqe" path="res://assets/sound/effects/09 - EnemyDamage.wav" id="4_cbb6p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4wwv"]
+size = Vector2(96, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e17q3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7i3pi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_y0dnp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0n211")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}]
+
+[node name="BunbyHeli" type="Area2D" groups=["Enemies"]]
+scale = Vector2(3, 3)
+collision_layer = 4
+collision_mask = 17
+script = ExtResource("1_0lmum")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(0.6, 1.4)
+shape = SubResource("RectangleShape2D_b4wwv")
+debug_color = Color(0.749261, 0.658193, 0.342816, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_e17q3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_7i3pi")
+autoplay = "default"
+frame_progress = 0.12696
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="HurtSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_cbb6p")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

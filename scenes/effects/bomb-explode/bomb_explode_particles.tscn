@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7u87ap0rddtj"]
+
+[ext_resource type="Texture2D" uid="uid://m38ry17pmjlo" path="res://assets/effects/mm-bomb-explode.png" id="1_54n5f"]
+[ext_resource type="Script" uid="uid://cugwjrc35vrd3" path="res://scripts/particleeffect.gd" id="2_jwb7x"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_54n5f"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="BombExplodeParticles" type="CPUParticles2D"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_54n5f")
+emitting = false
+amount = 1
+texture = ExtResource("1_54n5f")
+lifetime = 0.25
+one_shot = true
+gravity = Vector2(0, 0)
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+script = ExtResource("2_jwb7x")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

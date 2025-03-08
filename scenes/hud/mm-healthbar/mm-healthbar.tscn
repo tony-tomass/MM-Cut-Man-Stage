@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://crhdaj5sfxtkh" path="res://assets/hud/mm-healthbar_empty.png" id="1_wbtx4"]
 [ext_resource type="Texture2D" uid="uid://cvdt0pv1vql4r" path="res://assets/hud/mm-healthbar.png" id="2_ar05k"]
-[ext_resource type="Script" path="res://scenes/hud/mm-healthbar/mm_healthbar.gd" id="3_fud8k"]
+[ext_resource type="Script" uid="uid://bnnni6wf4jw6p" path="res://scenes/hud/mm-healthbar/mm_healthbar.gd" id="3_fud8k"]
 
 [node name="TextureProgressBar" type="TextureProgressBar"]
 texture_filter = 1

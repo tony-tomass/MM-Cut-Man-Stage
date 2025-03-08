@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://h28nuccdylxo"]
+
+[ext_resource type="Texture2D" uid="uid://pmexjvel0jqj" path="res://assets/characters/enemies/blaster/blaster-bullet.png" id="1_00agr"]
+[ext_resource type="AudioStream" uid="uid://bf8s60vdd86oo" path="res://assets/sound/effects/10 - EnemyShoot.wav" id="1_r0sv7"]
+[ext_resource type="Script" uid="uid://bwsq1ymdxbo8t" path="res://scenes/characters/enemies/blaster-beak/blaster_beak_bullet.gd" id="1_w6f73"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x1mq2"]
+size = Vector2(6, 6)
+
+[node name="BlasterBeakBullet" type="Area2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_w6f73")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_00agr")
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_r0sv7")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(8.9407e-08, -8.9407e-08)
+scale = Vector2(0.9, 0.9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_x1mq2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

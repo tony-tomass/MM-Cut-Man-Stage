@@ -12,11 +12,17 @@ config_version=5
 
 config/name="Mega Man 1 Clone"
 run/main_scene="res://scenes/levels/test.tscn"
-config/features=PackedStringArray("4.3", "Mobile")
+config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+AudioManager="*res://scenes/effects/audio/audio_manager.tscn"
 
 [display]
 
+window/size/viewport_width=768
+window/size/viewport_height=676
 window/stretch/mode="viewport"
 
 [global_group]
@@ -77,4 +83,5 @@ shoot={
 
 [rendering]
 
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
